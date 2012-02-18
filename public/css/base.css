@@ -32,3 +32,7 @@ h1 {
   background-image: -ms-linear-gradient(top, #124 0%, #345 100%);
   background-image: linear-gradient(top, #124 0%, #345 100%);
 }
+
+p {
+  text-indent: 1em;
+}
