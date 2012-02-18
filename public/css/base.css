@@ -1,0 +1,19 @@
+body {
+  font-family: Georgia, Times, serif;
+  text-align: justify;
+  background-color: #124;
+  color: #dd8;
+  padding-left: 4em;
+  padding-right: 4em;
+  max-width: 800px;
+}
+
+img.portrait {
+  float: right;
+  margin-left: 2em;
+}
+
+a.map {
+  float: left;
+  margin-right: 2em;
+}
