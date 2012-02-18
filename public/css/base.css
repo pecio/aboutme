@@ -20,11 +20,13 @@ a {
 img.portrait {
   float: right;
   margin-left: 2em;
+  margin-right: -4px;
 }
 
 a.map {
   float: left;
   margin-right: 2em;
+  margin-left: -4px;
 }
 
 h1 {
