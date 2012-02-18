@@ -1,7 +1,7 @@
 @media only screen and (max-device-width:480px){
 body{font-family:serif;text-align:justify;background-color:#124;color:#ee9;margin-left:1em;margin-right:1em;-webkit-text-size-adjust:200%;border:none;padding:0px;max-width:100%;}
 a{color:#db4;}
-img.portrait{float:right;margin-left:1em;}
+img.portrait{float:right;margin-left:1em;width:25%;}
 a.map{float:left;margin-right:1em;}
 h1{font-family:sans-serif;color:#ee9;border-bottom:1px solid #ee9;padding-left:4px;background:-webkit-gradient(linear, left top, left bottom, from(#124), to(#345));margin:0px;}
 p{text-indent:1em;}
