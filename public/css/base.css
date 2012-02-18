@@ -21,3 +21,12 @@ a.map {
   float: left;
   margin-right: 2em;
 }
+
+h1 {
+  font-family: Helvetica, sans-serif;
+  color: #ee9;
+  border-bottom: 1px solid #ee9;
+  padding-left: 4px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#124), to(#345));
+  background: -moz-linear-gradient(top, #124, #345);
+}
