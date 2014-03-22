@@ -4,69 +4,101 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="ROBOTS" content="NOINDEX, FOLLOW"/>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" type="text/css"
-          href="//brick.a.ssl.fastly.net/EB+Garamond:400/Raleway:700"/>
-    <link rel="stylesheet" type="text/css" media="Screen" href="css/base.css"/>
-    <link rel="stylesheet" type="text/css" href="css/iphone.css"
-          media="only screen and (max-device-width: 480px)"/>
+          href="//brick.a.ssl.fastly.net/EB+Garamond:400"/>
+    <link rel="stylesheet" type="text/css"
+          href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/starter-template.css"/>
     <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
     <title>About me</title>
   </head>
   <body>
-    <h1>About me</h1>
-    <p>Hello! My name is Ra&uacute;l Pedroche.
-<img class="portrait" src="images/raulete.jpeg" alt="[My portrait]"/>
-Pleased to meet you.
-I am another student of <a href="http://rubylearning.org/class/"
-title="A Ruby Learning Hub">RubyLearning.org</a>'s course "Programming
-for the Web with Ruby".</p>
-    <p>I like to be known by the handle "Pecio", but, truth be told,
-nobody ever calls me that.</p>
-    <p>I have <a href="http://raulete.tumblr.com/"
-title="Raulete's rants about technology and everything">a Tumblr web log</a>
-that I do not update too much and
-<a href="https://twitter.com/#!/pedrocheisback"
-title="Raúl Pedroche (pedrocheisback) in Twitter">a Twitter feed</a> that
-I update somewhat more but is not too thrilling to read.</p>
-    <div><a class="map" href="images/map.png"><img
-src="images/map-thumbnail.png" alt="[Map of my location]"/></a></div>
-    <p>I am from Spain. I was raised in
-the northern coast, but now I am living in the capital, Madrid, in
-the center of the Iberian peninsula.</p>
-    <p>I am an unix administrator by training and trade, although I am
-currently between jobs. I am using this free time to try to learn more
-about programming. That is why I am taking Rubylearning.org course.</p>
-    <p>A confession: I am a Ruby newbie (although this is not my first
-contact with the language). But I think I am getting up to
-speed fairly well.</p>
-    <p>I learnt Object Oriented programming quite a long
-time ago (my main source was <a href="http://goo.gl/yZQN8"
-title="Object-oriented programming: an evolutionary approach">a book</a>
-that used Objective-C back when
-nobody had heard of the language) and I have tried to use the paradigm
-everytime I have had to write some program. I have done OO programming
-in C++, Perl, and Objective-C (with Cocoa) and have used OO architectures
-in plain ANSI C.</p>
-    <p>Besides this course, I am doing a course on C# development. And
-it is like night and day. Quite often, while doing the exercises on C#,
-I cannot help but think how much easier and intuitive would it be in
-Ruby (or maybe any dynamic language).</p>
-    <p>(That and the fact I miss Vim, although Intellisense is great.)</p>
-    <p>It can be said I am under the influence of the Apple sect: my
-computers are Apple (besides a
-<a href="http://en.wikipedia.org/wiki/Ultra_5/10"
-title="Ultra 5/10 - Wikipedia, the free encyclopedia">Sun Ultra 10
-workstation</a> I do not power on too
-often) and I have an iPhone. Although I do not have plans of buying
-an iPad (I have no use for it).</p>
-    <p>I suppose I have to talk about my hobbies. I am quite boring in
-that respect. I read books (mostly science fiction, but not exclusively),
-watch movies from time to time and listen to rock music.</p>
-    <hr/>
-    <p>
-    <a href="http://validator.w3.org/check?uri=referer"><img
-       src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
-      </p>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle"
+            data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navitation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Raúl Pedroche</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">About</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+    <div class="container">
+      <div class="starter-template">
+        <h1>About me</h1>
+        <img src="images/raulete.jpeg" alt="[My portrait]"/>
+        <p class="lead">Hello! My name is Raúl Pedroche.  Pleased to meet you.
+       I am another student of
+          <a href="http://rubylearning.org/class/"
+            title="A Ruby Learning Hub">RubyLearning.org</a>'s
+          course "Programming for the Web with Ruby".</p>
+        <p>I like to be known by the handle "Pecio", but, truth be told,
+          nobody ever calls me that.</p>
+        <p>I have
+          <a href="http://raulete.tumblr.com/"
+            title="Raulete's rants about technology and everything">a
+            Tumblr web log</a> that I do not update too much and
+          <a href="https://twitter.com/#!/pedrocheisback"
+            title="Raúl Pedroche (pedrocheisback) in Twitter">a
+            Twitter feed</a> that I update somewhat more but is not
+          too thrilling to read.</p>
+          <div><a class="map" href="images/map.png"><img
+          src="images/map-thumbnail.png" alt="[Map of my location]"/></a></div>
+      <p>I am from Spain. I was raised in the northern coast, but
+        now I am living in the capital, Madrid, in the center of the
+        Iberian peninsula.</p>
+      <p>I am an unix administrator by training and trade, although I am
+      currently between jobs. I am using this free time to try to learn
+      more about programming. That is why I am taking Rubylearning.org
+      course.</p>
+      <p>A confession: I am a Ruby newbie (although this is not my first
+        contact with the language). But I think I am getting up to
+        speed fairly well.</p>
+      <p>I learnt Object Oriented programming quite a long
+      time ago (my main source was <a
+        href="http://books.google.es/books/about/Object_oriented_programming.html?id=U8AgAQAAIAAJ"
+        title="Object-oriented programming: an evolutionary approach">a book</a>
+      that used Objective-C back when nobody had heard of the
+      language) and I have tried to use the paradigm everytime I
+      have had to write some program. I have done OO programming
+      in C++, Perl, and Objective-C (with Cocoa) and have used OO
+      architectures in plain ANSI C.</p>
+      <p>Besides this course, I am doing a course on C# development. And
+      it is like night and day. Quite often, while doing the exercises on C#,
+      I cannot help but think how much easier and intuitive would it be in
+      Ruby (or maybe any dynamic language).</p>
+      <p>(That and the fact I miss Vim, although Intellisense is great.)</p>
+      <p>It can be said I am under the influence of the Apple sect: my
+      computers are Apple (besides a
+      <a href="http://en.wikipedia.org/wiki/Ultra_5/10"
+        title="Ultra 5/10 - Wikipedia, the free encyclopedia">Sun Ultra 10
+      workstation</a> I do not power on too
+      often) and I have an iPhone. Although I do not have plans of buying
+      an iPad (I have no use for it).</p>
+      <p>I suppose I have to talk about my hobbies. I am quite boring in
+      that respect. I read books (mostly science fiction, but not
+      exclusively), watch movies from time to time and listen to rock
+      music.</p>
+    </div><!-- starter-template -->
+  </div><!-- containter -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js">
+    </script>
+    <script src="//netdns.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js">
+    </script>
   </body>
 </html>

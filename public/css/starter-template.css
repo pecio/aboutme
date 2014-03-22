@@ -1,0 +1,20 @@
+body {
+  padding-top: 50px;
+}
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.starter-template p {
+  text-align: justify;
+}
+
+.starter-template p.lead {
+  text-align: center;
+}
+
+.navbar-brand {
+  font-family: 'EB Garamond', serif;
+}
