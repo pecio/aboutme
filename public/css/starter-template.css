@@ -6,3 +6,11 @@ body {
   padding: 40px 15px;
   text-align: center;
 }
+
+.starter-template p {
+  text-align: justify;
+}
+
+.starter-template p.lead {
+  text-align: center;
+}
