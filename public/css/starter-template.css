@@ -14,3 +14,7 @@ body {
 .starter-template p.lead {
   text-align: center;
 }
+
+.navbar-brand {
+  font-family: 'EB Garamond', serif;
+}
