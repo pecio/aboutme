@@ -4,7 +4,6 @@ body {
 
 .starter-template {
   padding: 40px 15px;
-  text-align: center;
 }
 
 .starter-template p {
@@ -12,6 +11,10 @@ body {
 }
 
 .starter-template p.lead {
+  text-align: center;
+}
+
+.starter-template h1 {
   text-align: center;
 }
 
