@@ -21,3 +21,12 @@ body {
 .navbar-brand {
   font-family: 'EB Garamond', serif;
 }
+
+.dl-horizontal dt {
+  margin-right: 1em;
+  width: auto;
+}
+
+.dl-horizontal dd {
+  margin-left: 0;
+}
