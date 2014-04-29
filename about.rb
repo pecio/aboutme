@@ -26,3 +26,11 @@ end
 get '/' do
   erb :index
 end
+
+get '/resume' do
+  erb :resume
+end
+
+get '/contact' do
+  erb :contact
+end
