@@ -19,7 +19,7 @@ html, body {
 }
 
 #footer p {
-  vertical-align: middle;
+  margin-top: 4px;
 }
 
 @media (max-width: 767px) {
