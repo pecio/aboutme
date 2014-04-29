@@ -4,6 +4,7 @@ body {
 
 .starter-template {
   padding: 40px 15px;
+  opacity: 0;
 }
 
 .starter-template p {
