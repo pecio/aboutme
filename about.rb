@@ -55,6 +55,7 @@ post '/contact' do
     from: "#{params[:name]} <#{params[:email]}>",
     subject: 'Contacto de ' + params[:name],
     body: params[:message],
+    charset: 'UTF-8',
     via: :smtp,
     via_options: {
       port:           ENV['MAILGUN_SMTP_PORT'],
