@@ -3,3 +3,9 @@ en:
     about: About
     resume: Resume
     contact: Contact
+  contact:
+    title: Contact
+    name: Name
+    email: "E-Mail"
+    message: Message
+    submit: Submit

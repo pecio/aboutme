@@ -3,3 +3,9 @@ es:
     about: "Acerca de mí"
     resume: CV
     contact: Contacto
+  contact:
+    title: Contacto
+    name: Nombre
+    email: "E-Mail"
+    message: Mensaje
+    submit: Enviar

@@ -1,0 +1,42 @@
+<h1><%= t('contact.title') %></h1>
+<!-- Taken from http://bootsnipp.com/snippets/featured/simplest-contact-form -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="well well-sm">
+        <form class="form-horizontal" action="" method="post">
+          <fieldset>
+    
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="name"><%= t('contact.name') %></label>
+              <div class="col-md-9">
+                <input id="name" name="name" type="text" class="form-control"/>
+              </div>
+            </div>
+    
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="email"><%= t('contact.email') %></label>
+              <div class="col-md-9">
+                <input id="email" name="email" type="text" class="form-control" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="message"><%= t('contact.message') %></label>
+              <div class="col-md-9">
+                <textarea class="form-control" id="message" name="message" rows="5"></textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-md-12 text-right">
+                <button type="submit" class="btn btn-primary btn-lg"><%= t('contact.submit') %></label>
+              </div>
+            </div>
+    
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
