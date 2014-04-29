@@ -12,8 +12,8 @@ end
 use Rack::Locale
 
 before '/:locale/*' do
-    I18n.locale       =       params[:locale]
-      request.path_info = '/' + params[:splat ][0]
+  I18n.locale       =       params[:locale]
+  request.path_info = '/' + params[:splat ][0]
 end
 
 get '/' do
