@@ -13,6 +13,7 @@ use Rack::Locale
 
 before '/:locale/*' do
   I18n.locale       =       params[:locale]
+  @lang_uri         =       params[:locale]
   request.path_info = '/' + params[:splat ][0]
 end
 
