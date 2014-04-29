@@ -9,3 +9,7 @@ es:
     email: "E-Mail"
     message: Mensaje
     submit: Enviar
+    errors:
+      name: "Por favor, introduzca su nombre"
+      email: "Por favor, introduzca una dirección de correo válida"
+      message: "Por favor, diga algo"

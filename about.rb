@@ -43,3 +43,7 @@ end
 get '/contact' do
   erb :contact
 end
+
+get '/contactform.js' do
+  erb 'contactform.js'.to_sym, layout: false
+end

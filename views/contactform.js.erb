@@ -1,0 +1,31 @@
+$(document).ready(function () {
+  $('#contact-form').validate({
+    rules: {
+      name: {
+        minlength: 2,
+        required: true
+      },
+      email: {
+        required: true,
+        email: true
+      },
+      message: {
+        minlength: 2,
+        required: true
+      }
+    },
+    highlight: function(element) {
+      $(element).closest('.form-group').addClass('has-error');
+    },
+    unhighlight: function(element) {
+      $(element)
+        .addClass('valid')
+        .closest('.form-group').removeClass('has-error');
+    },
+    messages: {
+      name: "<%= t('contact.errors.name') %>",
+      email: "<%= t('contact.errors.email') %>",
+      message: "<%= t('contact.errors.message') %>"
+    }
+  });
+});
