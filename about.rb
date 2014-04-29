@@ -16,6 +16,13 @@ before '/:locale/*' do
   request.path_info = '/' + params[:splat ][0]
 end
 
+helpers do
+  def find_template(views, name, engine, &block)
+    I18n.fallbacks[I18n.locale].each { |locale| super(views, "#{name}.#{locale}", engine, &block) }
+    super(views, name, engine, &block)
+  end
+end
+
 get '/' do
-  send_file File.expand_path('index.html', settings.public_folder)
+  erb :index
 end
