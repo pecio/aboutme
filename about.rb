@@ -22,6 +22,14 @@ helpers do
     I18n.fallbacks[I18n.locale].each { |locale| super(views, "#{name}.#{locale}", engine, &block) }
     super(views, name, engine, &block)
   end
+
+  def t(*args)
+    I18n.t(*args)
+  end
+
+  def l(*args)
+    I18n.l(*args)
+  end
 end
 
 get '/' do
