@@ -5,6 +5,8 @@ require 'rack/contrib'
 require 'pony'
 
 configure do
+  I18n.default_locale = :en
+  I18n.enforce_available_locales = true
   I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
   I18n.load_path = Dir[File.join(settings.root, 'locales', '*.yml')]
   I18n.backend.load_translations
@@ -13,7 +15,9 @@ end
 use Rack::Locale
 
 before '/:locale/*' do
-  I18n.locale       =       params[:locale]
+  if I18n.locale_available?(params[:locale]) then
+    I18n.locale     =       params[:locale]
+  end
   @lang_uri         =       params[:locale]
   request.path_info = '/' + params[:splat ][0]
 end
