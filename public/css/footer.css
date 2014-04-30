@@ -30,3 +30,18 @@ html, body {
     padding-right: 20px;
   }
 }
+
+@media print {
+  #footer {
+    visibility: hidden;
+  }
+
+  #wrap {
+    min-height: 0;
+    height: auto;
+  }
+
+  html, body {
+    height: auto;
+  }
+}
