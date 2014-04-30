@@ -24,8 +24,8 @@ end
 
 helpers do
   def find_template(views, name, engine, &block)
-    print("Called find_template(#{views}, #{name}, #{engine}, ...)\n")
-    print("Locale is #{I18n.locale}, fallbacks are #{I18n.fallbacks[I18n.locale]}\n")
+    # print("Called find_template(#{views}, #{name}, #{engine}, ...)\n")
+    # print("Locale is #{I18n.locale}, fallbacks are #{I18n.fallbacks[I18n.locale]}\n")
     I18n.fallbacks[I18n.locale].each { |locale| super(views, "#{name}.#{locale}", engine, &block) }
     super(views, name, engine, &block)
   end
