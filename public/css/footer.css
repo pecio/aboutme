@@ -32,13 +32,15 @@ html, body {
 }
 
 @media print {
-  #footer {
+  #push, #footer {
     visibility: hidden;
+    height: 0;
   }
 
   #wrap {
     min-height: 0;
     height: auto;
+    margin-bottom: 0;
   }
 
   html, body {
