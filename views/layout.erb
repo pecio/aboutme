@@ -1,3 +1,12 @@
+<%
+  if @lang_uri then
+    base = "/#{@lang_uri}/"
+  else
+    base = "/"
+  end
+  page = request.path_info[1..-1]
+  page.length > 0 || page = 'index'
+%>
 <?xml version="1.0"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en" xml:lang="en">
@@ -27,23 +36,18 @@
               <span class="icon-bar"></span>
             </button>
           <%
-            if @lang_uri then
-              base = "/#{@lang_uri}/"
-            else
-              base = "/"
-            end
           %>
           <a class="navbar-brand" href="<%= base %>">Raúl Pedroche</a>
           </div>
           <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-              <li <%= if request.path_info == '/' then 'class="active"' end %>>
+              <li <%= if page == 'index' then 'class="active"' end %>>
                 <a href="<%= base %>"><%= t('header.about') %></a>
               </li>
-              <li <%= if request.path_info == '/resume' then 'class="active"' end %>>
+              <li <%= if page == 'resume' then 'class="active"' end %>>
                 <a href="<%= base %>resume"><%= t('header.resume') %></a>
               </li>
-              <li <%= if request.path_info == '/contact' then 'class="active"' end %>>
+              <li <%= if page == 'contact' then 'class="active"' end %>>
                 <a href="<%= base %>contact"><%= t('header.contact') %></a>
               </li>
             </ul>
