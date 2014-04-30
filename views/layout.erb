@@ -27,6 +27,15 @@
     <link rel="stylesheet" type="text/css" href="/css/footer.css" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <% if page != 'index' then %>
+      <link rel="index" href="<%= base %>" />
+    <% end %>
+    <% if page != 'resume' %>
+      <link rel="resume" href="<%= base %>resume" />
+    <% end %>
+    <% if page != 'contact' %>
+      <link rel="contact" href="<%= base %>contact" />
+    <% end %>
     <title>Raúl Pedroche</title>
   </head>
   <body>
