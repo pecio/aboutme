@@ -57,7 +57,7 @@ end
 
 post '/contact' do
   options = {
-    to: 'pedroche@me.com',
+    to: ENV['CONTACT_ADDRESS'],
     from: "#{params[:name]} <#{params[:email]}>",
     subject: 'Contacto de ' + params[:name],
     body: params[:message],
