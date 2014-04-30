@@ -33,8 +33,7 @@ html, body {
 
 @media print {
   #push, #footer {
-    visibility: hidden;
-    height: 0;
+    display: none !important;
   }
 
   #wrap {
