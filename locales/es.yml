@@ -13,3 +13,8 @@ es:
       name: "Por favor, introduzca su nombre"
       email: "Por favor, introduzca una dirección de correo válida"
       message: "Por favor, diga algo"
+  meta:
+    description:
+      index: "Raúl Pedroche, administrador unix"
+      resume: "CV de Raúl Pedroche, administrador unix"
+      contact: "Página de contacto de Raúl Pedroche"
