@@ -6,10 +6,12 @@
   end
   page = request.path_info[1..-1]
   page.length > 0 || page = 'index'
+  lang = I18n.locale.to_s.scan(/^[a-z]+/).first.downcase
+  lANG = lang.upcase # Note l is lowercase
 %>
 <?xml version="1.0"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en" xml:lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//<%= lANG %>" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="<%= lang %>" xml:lang="<%= lang %>">
   <head>
     <meta name="description" content="<%= t("meta.description.#{page}") %>" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
