@@ -53,6 +53,13 @@
               <li <%= if page == 'contact' then 'class="active"' end %>>
                 <a href="<%= base %>contact"><%= t('header.contact') %></a>
               </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('header.language.title') %></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/es<%= request.path_info %>"><img src="/images/ES.png" /> <%= t('header.language.spanish') %></a></li>
+                  <li><a href="/en<%= request.path_info %>"><img src="/images/US.png" /> <%= t('header.language.english') %></a></li>
+                </ul>
+              </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

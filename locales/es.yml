@@ -3,6 +3,10 @@ es:
     about: "Acerca de mí"
     resume: CV
     contact: Contacto
+    language:
+      title: Idioma
+      spanish: Castellano
+      english: Inglés
   contact:
     title: Contacto
     name: Nombre
