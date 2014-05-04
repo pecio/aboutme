@@ -60,7 +60,7 @@
             <li <%= if page == 'index' then 'class="active"' end %>>
               <a href="<%= base %>"><%= t('header.about') %></a>
             </li>
-            <li <%= if page == 'resume' then 'class="active"' end %>>
+            <li <%= if page == 'resume' or page == 'extended' then 'class="active"' end %>>
               <a href="<%= base %>resume"><%= t('header.resume') %></a>
             </li>
             <li <%= if page == 'contact' then 'class="active"' end %>>
