@@ -37,8 +37,10 @@ body {
   background-image: linear-gradient(to bottom, white 0px, #333 4px, #333 46px, black 50px);
 }
 
-.dropdown:hover .dropdown-menu {
-  display: block;
+@media(min-width:768px) {
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
 }
 
 @media print {
