@@ -33,11 +33,11 @@ helpers do
 end
 
 get '/' do
-  erb "index.#{I18n.locale}".to_sym
+  erb "index-#{I18n.locale}".to_sym
 end
 
 get '/resume' do
-  erb "resume.#{I18n.locale}".to_sym
+  erb "resume-#{I18n.locale}".to_sym
 end
 
 get '/contact' do
