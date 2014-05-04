@@ -20,7 +20,8 @@ body {
 }
 
 .navbar-brand {
-  font-family: 'EB Garamond', serif;
+  font-family: 'EB Garamond', Garamond, serif;
+  line-height: 24px;
 }
 
 .dl-horizontal dt {
