@@ -23,13 +23,6 @@ before '/:locale/*' do
 end
 
 helpers do
-  def find_template(views, name, engine, &block)
-    I18n.fallbacks[I18n.locale].each do |locale|
-      super(views, "#{name.to_s}.#{locale}".to_sym, engine, &block)
-    end
-    super(views, name, engine, &block)
-  end
-
   def t(*args)
     I18n.t(*args)
   end
@@ -40,11 +33,11 @@ helpers do
 end
 
 get '/' do
-  erb :index
+  erb "index.#{I18n.locale}".to_sym
 end
 
 get '/resume' do
-  erb :resume
+  erb "resume.#{I18n.locale}".to_sym
 end
 
 get '/contact' do
