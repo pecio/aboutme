@@ -1,7 +1,10 @@
 es:
   header:
     about: "Acerca de mí"
-    resume: CV
+    resume:
+      title: CV
+      terse: Resumido
+      extended: Extendido
     contact: Contacto
     language:
       title: Idioma

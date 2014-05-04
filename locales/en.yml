@@ -1,7 +1,10 @@
 en:
   header:
     about: About
-    resume: Resume
+    resume:
+      title: Resume
+      terse: Terse
+      extended: Extended
     contact: Contact
     language:
       title: Language
