@@ -60,8 +60,8 @@
             <li <%= if page == 'index' then 'class="active"' end %>>
               <a href="<%= base %>"><%= t('header.about') %></a>
             </li>
-            <li <%= if page == 'resume' or page == 'extended' then 'class="active"' end %> class="dropdown">
-              <a href="<%= base %>resume" class="dropdown-toggle" data-toggle="dopdown"><%= t('header.resume.title') %></a>
+            <li class="dropdown <%= if page == 'resume' or page == 'extended' then 'active' end %>">
+              <a href="<%= base %>resume" class="dropdown-toggle" data-toggle="dropdown"><%= t('header.resume.title') %></a>
               <ul class="dropdown-menu">
                 <li><a href="<%= base %>resume"><%= t('header.resume.terse') %></a></li>
                 <li><a href="<%= base %>extended"><%= t('header.resume.extended') %></a></li>
