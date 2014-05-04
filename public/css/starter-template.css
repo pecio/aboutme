@@ -32,6 +32,10 @@ body {
   margin-left: 0;
 }
 
+.navbar-inverse {
+  background-image: linear-gradient(to bottom, white 0px, #333 4px, #333 46px, black 50px);
+}
+
 @media print {
   .starter-template {
     margin-top: 0;
