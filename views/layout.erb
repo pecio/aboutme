@@ -61,7 +61,7 @@
               <a href="<%= base %>"><%= t('header.about') %></a>
             </li>
             <li class="dropdown <%= if page == 'resume' or page == 'extended' then 'active' end %>">
-              <a href="<%= base %>resume" class="dropdown-toggle" data-toggle="dropdown"><%= t('header.resume.title') %></a>
+              <a href="<%= base %>resume" class="dropdown-toggle" data-toggle="dropdown"><%= t('header.resume.title') %> <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="<%= base %>resume"><%= t('header.resume.terse') %></a></li>
                 <li><a href="<%= base %>extended"><%= t('header.resume.extended') %></a></li>
@@ -71,10 +71,10 @@
               <a href="<%= base %>contact"><%= t('header.contact') %></a>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('header.language.title') %></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= t('header.language.title') %> <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="/es<%= request.path_info %>"><img src="/images/ES.png" /> <%= t('header.language.spanish') %></a></li>
-                <li><a href="/en<%= request.path_info %>"><img src="/images/US.png" /> <%= t('header.language.english') %></a></li>
+                <li><a href="/es<%= request.path_info %>"><%= t('header.language.spanish') %></a></li>
+                <li><a href="/en<%= request.path_info %>"><%= t('header.language.english') %></a></li>
               </ul>
             </li>
           </ul>
