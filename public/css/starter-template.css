@@ -8,7 +8,7 @@ body {
 }
 
 .starter-template p {
-  text-align: justify;
+  text-align: left;
 }
 
 .starter-template p.lead {
@@ -63,5 +63,9 @@ body {
 
   td {
     padding: 1px;
+  }
+
+  .starter-template p {
+    text-align: justify;
   }
 }
