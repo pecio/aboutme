@@ -25,7 +25,7 @@ end
 helpers do
   def find_template(views, name, engine, &block)
     I18n.fallbacks[I18n.locale].each do |locale|
-      super(views, "#{name}.#{locale}", engine, &block)
+      super(views, "#{name.to_s}.#{locale}".to_sym, engine, &block)
     end
     super(views, name, engine, &block)
   end
