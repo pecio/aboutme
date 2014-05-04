@@ -40,6 +40,10 @@ get '/resume' do
   erb "resume-#{I18n.locale}".to_sym
 end
 
+get '/extended' do
+  erb "extended-#{I18n.locale}".to_sym
+end
+
 get '/contact' do
   erb :contact
 end
