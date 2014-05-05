@@ -25,3 +25,8 @@ es:
       index: "Raúl Pedroche, administrador unix"
       resume: "CV de Raúl Pedroche, administrador unix"
       contact: "Página de contacto de Raúl Pedroche"
+  title:
+    index: "Raúl Pedroche"
+    resume: "Curriculum Vitae de Raúl Pedroche"
+    extended: "Curriculum Vitae Extendido de Raúl Pedroche"
+    contact: "Contactar con Raúl Pedroche"
