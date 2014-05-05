@@ -9,9 +9,8 @@
   lang = I18n.locale.to_s.scan(/^[a-z]+/).first.downcase
   lANG = lang.upcase # Note l is lowercase
 %>
-<?xml version="1.0"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//<%= lANG %>" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="<%= lang %>" xml:lang="<%= lang %>">
+<!DOCTYPE html>
+<html dir="ltr" lang="<%= lang %>">
   <head>
     <meta name="description" content="<%= t("meta.description.#{page}") %>" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -28,15 +27,6 @@
     <link rel="stylesheet" type="text/css" href="/css/footer.css" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <% if page != 'index' then %>
-      <link rel="index" href="<%= base %>" />
-    <% end %>
-    <% if page != 'resume' %>
-      <link rel="resume" href="<%= base %>resume" />
-    <% end %>
-    <% if page != 'contact' %>
-      <link rel="contact" href="<%= base %>contact" />
-    <% end %>
     <link rel="alternate" hreflang="en"
     href="http://www.raulpedroche.es/en<%= request.path_info %>" />
     <link rel="alternate" hreflang="es"
@@ -44,7 +34,7 @@
     <title>Raúl Pedroche</title>
   </head>
   <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -80,26 +70,26 @@
           </ul>
         </div><!--/.nav-collapse -->
       </div>
-    </div>
+    </header>
     <div class="container">
       <div class="starter-template">
         <%= yield %>
       </div><!-- starter-template -->
     </div><!-- container -->
-    <div id="footer">
+    <footer id="footer">
       <div class="container">
         <p>
-        <a href="http://es.linkedin.com/in/raulpedrochenovillo/"><img src="/images/linkedin.png"/></a>
-        <a href="https://twitter.com/pedrocheisback"><img src="/images/twitter.png"/></a>
-        <a href="https://www.google.com/+Ra%C3%BAlPedrocheNovillo"><img src="/images/googleplus.png"/></a>
-        <a href="https://www.facebook.com/raul.pedrochenovillo"><img src="/images/facebook.png"/></a>
-        <a href="http://raulete.tumblr.com/"><img src="/images/tumblr.png"/></a>
-        <a href="https://github.com/pecio"><img src="/images/github.png"/></a>
-        <a href="http://stackoverflow.com/users/706716/raul-pedroche"><img src="/images/stackoverflow.png"/></a>
-        <a href="http://www.goodreads.com/user/show/19539158-ra-l-pedroche"><img src="/images/goodreads.png"/></a>
+        <a href="http://es.linkedin.com/in/raulpedrochenovillo/"><img src="/images/linkedin.png" alt="[LinkedIn]" /></a>
+        <a href="https://twitter.com/pedrocheisback"><img src="/images/twitter.png" alt="[Twitter]" /></a>
+        <a href="https://www.google.com/+Ra%C3%BAlPedrocheNovillo"><img src="/images/googleplus.png" alt="[G+]" /></a>
+        <a href="https://www.facebook.com/raul.pedrochenovillo"><img src="/images/facebook.png" alt="[FB]" /></a>
+        <a href="http://raulete.tumblr.com/"><img src="/images/tumblr.png" alt="[Tumblr]" /></a>
+        <a href="https://github.com/pecio"><img src="/images/github.png" alt="[GitHub]" /></a>
+        <a href="http://stackoverflow.com/users/706716/raul-pedroche"><img src="/images/stackoverflow.png" alt="[StackOverflow]" /></a>
+        <a href="http://www.goodreads.com/user/show/19539158-ra-l-pedroche"><img src="/images/goodreads.png" alt="[GoodReads]" /></a>
         </p>
       </div>
-    </div>
+    </footer>
 
     <script src="//cdn.jsdelivr.net/jquery/1.11.0/jquery.min.js">
     </script>
