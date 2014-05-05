@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <div class="well well-sm">
-        <form class="form-horizontal" action="" method="post" id="contact-form">
+        <form class="form-horizontal" action="<%= request.path_info %>" method="post" id="contact-form">
           <fieldset>
     
             <div class="form-group">
@@ -30,7 +30,7 @@
 
             <div class="form-group">
               <div class="col-md-12 text-right">
-                <button type="submit" class="btn btn-primary btn-lg"><%= t('contact.submit') %></label>
+                <button type="submit" class="btn btn-primary btn-lg"><%= t('contact.submit') %></button>
               </div>
             </div>
     
