@@ -6,10 +6,6 @@ en:
       terse: Terse
       extended: Extended
     contact: Contact
-    language:
-      title: Language
-      spanish: Spanish
-      english: English
   contact:
     title: Contact
     name: Name

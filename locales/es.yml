@@ -6,10 +6,6 @@ es:
       terse: Resumido
       extended: Extendido
     contact: Contacto
-    language:
-      title: Idioma
-      spanish: Castellano
-      english: Inglés
   contact:
     title: Contacto
     name: Nombre
