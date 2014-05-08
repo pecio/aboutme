@@ -81,6 +81,13 @@
         </div><!--/.nav-collapse -->
       </div>
     </header>
+    <!-- Cookies warning -->
+    <div class="alert alert-warning alert-dismissable" id="alert-cookies">
+      <button type="button" class="close" data-dismiss="alert"
+        aria-hidden="true">&times;</button>
+      <%= t('alert.cookies') %>
+    </div>
+    <!-- End cookies warning -->
     <div class="container">
       <div class="starter-template">
         <%= yield %>
