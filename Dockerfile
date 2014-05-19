@@ -23,7 +23,6 @@ USER rack
 
 RUN /bin/rm -f .rvmrc .versions.conf .ruby-version &&\
     /bin/sed -i.orig '/^[[:space:]]*ruby/d' Gemfile &&\
-    /bin/bash -c '/bin/grep -q "^[^#]*unicorn" Gemfile || echo "gem \"unicorn\"" >> Gemfile' &&\
     /bin/bash -c -l 'gem install bundler --no-ri --no-rdoc' &&\
     /bin/bash -c -l 'bundle install --without=development:test'
 
