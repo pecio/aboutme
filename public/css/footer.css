@@ -41,3 +41,7 @@ html, body {
     height: auto;
   }
 }
+
+#footer img:hover {
+  box-shadow: 0 0 4px #66AFE9;
+}
