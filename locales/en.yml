@@ -3,8 +3,6 @@ en:
     about: About
     resume:
       title: Resume
-      terse: Terse
-      extended: Extended
     contact: Contact
   contact:
     title: Contact

@@ -3,8 +3,6 @@ es:
     about: "Acerca de mí"
     resume:
       title: CV
-      terse: Resumido
-      extended: Extendido
     contact: Contacto
   contact:
     title: Contacto
