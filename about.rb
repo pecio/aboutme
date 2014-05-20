@@ -10,9 +10,11 @@ configure do
   I18n.enforce_available_locales = true
   I18n.default_locale = :en
   I18n.backend.load_translations
+  set :static_cache_control, [:public, :max_age => 2592000]
 end
 
 use Rack::Locale
+use Rack::Deflater
 
 before '/:locale/*' do
   if I18n.locale_available?(params[:locale]) then
