@@ -14,7 +14,6 @@ configure do
 end
 
 use Rack::Locale
-use Rack::Deflater
 
 before '/:locale/*' do
   if I18n.locale_available?(params[:locale]) then
