@@ -16,8 +16,8 @@ es:
       message: "Por favor, diga algo"
   meta:
     description:
-      index: "Página personal de Raúl Pedroche, administrador unix"
-      resume: "CV de Raúl Pedroche, administrador unix"
+      index: "Página personal de Raúl Pedroche, administrador unix, con Curriculum Vitae y enlaces a las redes sociales"
+      resume: "Curriculum Vitae de Raúl Pedroche, administrador unix con experiencia en virtualización"
       contact: "Página de contacto de Raúl Pedroche"
   title:
     index: "Raúl Pedroche"

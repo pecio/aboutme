@@ -16,8 +16,8 @@ en:
       message: "Please say something"
   meta:
     description:
-      index: "Personal page of Raúl Pedroche, unix administrator"
-      resume: "Resume of Raúl Pedroche, unix administrator"
+      index: "Personal page of Raúl Pedroche, unix administrator, with resume and social media links"
+      resume: "Resume of Raúl Pedroche, unix administrator with experience in virtualization"
       contact: "Contact page for Raúl Pedroche"
   title:
     index: "Raúl Pedroche"
