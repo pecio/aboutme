@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "2.1"
+ruby "2.1.5"
 gem "unicorn"
 gem "sinatra"
 gem "i18n"
