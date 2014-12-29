@@ -20,10 +20,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:site_name" content="Raúl Pedroche" />
     <meta name="google-site-verification" content="<%= ENV['GOOGLE_SITE_VERIFICATION'] %>" />
-    <link rel="stylesheet" type="text/css" href="//brick.a.ssl.fastly.net/EB+Garamond:400" />
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3.1.1/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="/css/starter-template.css" />
-    <link rel="stylesheet" type="text/css" href="/css/footer.css" />
+    <script src="https://raw.githubusercontent.com/filamentgroup/loadCSS/master/loadCSS.js"></script>
+    <script>
+      loadCSS("//brick.a.ssl.fastly.net/EB+Garamond:400");
+      loadCSS("//cdn.jsdelivr.net/bootstrap/3.1.1/css/bootstrap.min.css");
+      loadCSS("/css/starter-template.css");
+      loadCSS("/css/footer.css");
+    </script>
+    <noscript>
+      <link rel="stylesheet" type="text/css" href="//brick.a.ssl.fastly.net/EB+Garamond:400" />
+      <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3.1.1/css/bootstrap.min.css" />
+      <link rel="stylesheet" type="text/css" href="/css/starter-template.css" />
+      <link rel="stylesheet" type="text/css" href="/css/footer.css" />
+    </noscript>
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="alternate" hreflang="en"
