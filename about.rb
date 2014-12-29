@@ -2,6 +2,7 @@ require 'sinatra'
 require 'i18n'
 require 'i18n/backend/fallbacks'
 require 'pony'
+require 'rack-user-locale'
 
 configure do
   I18n::Backend::Simple.include(I18n::Backend::Fallbacks)
@@ -11,6 +12,8 @@ configure do
   I18n.backend.load_translations
   set :static_cache_control, [:public, :max_age => 2592000]
 end
+
+use Rack::UserLocale, :accepted_locales => I18n.available_locales
 
 before '/:locale/*' do
   if I18n.locale_available?(params[:locale]) then
