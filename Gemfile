@@ -4,5 +4,5 @@ gem 'rack', '~>1.5.2'
 gem "unicorn"
 gem "sinatra"
 gem "i18n"
-gem "rack-contrib"
 gem "pony"
+gem "rack-user-locale"

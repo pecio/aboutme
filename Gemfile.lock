@@ -9,9 +9,10 @@ GEM
     pony (1.11)
       mail (>= 2.0)
     rack (1.5.2)
-    rack-contrib (1.2.0)
-      rack (>= 0.9.1)
     rack-protection (1.5.3)
+      rack
+    rack-user-locale (0.0.5)
+      i18n
       rack
     raindrops (0.13.0)
     sinatra (1.4.5)
@@ -31,6 +32,6 @@ DEPENDENCIES
   i18n
   pony
   rack (~> 1.5.2)
-  rack-contrib
+  rack-user-locale
   sinatra
   unicorn
