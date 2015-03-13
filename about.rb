@@ -33,6 +33,10 @@ helpers do
   end
 end
 
+before do
+  response.headers['X-Clacks-Overhead'] = 'GNU Terry Pratchett'
+end
+
 get '/' do
   erb "index-#{I18n.locale}".to_sym
 end
