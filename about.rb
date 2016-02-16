@@ -15,6 +15,10 @@ end
 
 use Rack::UserLocale, :accepted_locales => I18n.available_locales
 
+before '/' do
+  redirect "/#{I18n.locale}/"
+end
+
 before '/:document' do
   redirect "/#{I18n.locale}/#{params[:document]}"
 end
