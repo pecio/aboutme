@@ -1,31 +1,37 @@
-FROM ubuntu
+FROM alpine
 
-RUN apt-get update &&\
-    apt-get upgrade -qy &&\
-    apt-get install -qy curl build-essential openssl libreadline6-dev \
-      zlib1g-dev libssl-dev libyaml-dev libsqlite3-dev sqlite3 \
-      libxslt-dev autoconf libc6-dev ncurses-dev automake libtool \
-      bison subversion pkg-config gawk libgdbm-dev libffi-dev \
-      libxml2-dev &&\
-    echo "/bin/ln -sf /proc/self/fd /dev/fd" > /etc/profile.d/devfd.sh &&\
-    chmod 0755 /etc/profile.d/devfd.sh &&\
-    /bin/bash -c -l 'curl -sSL https://get.rvm.io | bash -s stable --ruby' &&\
-    /bin/rm -f /etc/profile.d/devfd.sh &&\
-    /usr/sbin/useradd -m -s /bin/bash -g rvm rack
+RUN apk add --no-cache ruby ruby-bundler ruby-unicorn ruby-io-console ruby-i18n ruby-mail ruby-tilt ruby-json
+RUN /usr/sbin/addgroup ruby
+RUN /usr/sbin/adduser -s /bin/ash -G ruby -D rack
 
 ADD . /rack-app
 
-RUN /bin/chown -R rack:rvm /rack-app
+RUN /bin/chown -R rack:ruby /rack-app
 
 WORKDIR /rack-app
 
 USER rack
 
-RUN /bin/rm -f .rvmrc .versions.conf .ruby-version &&\
-    /bin/sed -i.orig '/^[[:space:]]*ruby/d' Gemfile &&\
-    /bin/bash -c -l 'gem install bundler --no-ri --no-rdoc' &&\
-    /bin/bash -c -l 'bundle install --without=development:test'
+ENV GEM_HOME "/rack-app/gems"
+ENV PATH "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/rack-app/gems/bin"
+
+RUN /bin/rm -f .rvmrc .versions.conf .ruby-version
+RUN /bin/sed -i.orig '/^[[:space:]]*ruby/d' Gemfile
+RUN /bin/sed -i '/unicorn/d' Gemfile
+RUN /bin/sed -i '/i18n/d' Gemfile
+RUN /bin/sed -i '/mail/d' Gemfile
+RUN /bin/sed -i '/rack[^-]/d' Gemfile
+RUN /bin/sed -i.orig '/^[[:space:]]*unicorn/d' Gemfile.lock
+RUN /bin/sed -i '/^[[:space:]]*kgio/d' Gemfile.lock
+RUN /bin/sed -i '/^[[:space:]]*raindrops/d' Gemfile.lock
+RUN /bin/sed -i '/^[[:space:]]*i18n/d' Gemfile.lock
+RUN /bin/sed -i '/^[[:space:]]*mail/d' Gemfile.lock
+RUN /bin/sed -i '/^[[:space:]]*mime-types/d' Gemfile.lock
+RUN /bin/sed -i '/^[[:space:]]*tilt/d' Gemfile.lock
+RUN /bin/sed -i -e '/^[[:space:]]*rack[[:space:]]/d' -e '/^[[:space:]]*rack$/d' Gemfile.lock
+RUN /bin/mkdir /rack-app/gems
+RUN /usr/bin/bundle install --without=development:test
 
 EXPOSE 8080
 
-CMD ['/bin/bash', '-c', '-l', 'bundle exec unicorn']
+ENTRYPOINT ["/usr/bin/unicorn"]
