@@ -1,4 +1,5 @@
 FROM alpine
+MAINTAINER "Raúl Pedroche"
 
 RUN apk add --no-cache ruby ruby-bundler ruby-unicorn ruby-io-console ruby-i18n ruby-mail ruby-tilt ruby-json
 RUN /usr/sbin/addgroup ruby
