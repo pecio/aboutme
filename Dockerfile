@@ -15,8 +15,8 @@ USER rack
 
 ENV GEM_HOME "/rack-app/gems"
 ENV PATH "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/rack-app/gems/bin"
-ENV RACK_ENV "production"
 
+RUN /bin/mv -f /rack-app/.env-prod /rack-app/.env
 RUN /bin/sed -i.orig '/^[[:space:]]*ruby/d' Gemfile
 RUN /bin/sed -i '/unicorn/d' Gemfile
 RUN /bin/sed -i '/i18n/d' Gemfile
@@ -35,4 +35,4 @@ RUN /usr/bin/bundle install --without=development:test
 
 EXPOSE 8080
 
-ENTRYPOINT ["/usr/bin/unicorn"]
+ENTRYPOINT ["/rack-app/bin/runner"]

@@ -1,0 +1,8 @@
+#! /bin/sh
+if [ -r .env ]
+then
+  set -a
+  . .env
+  set +a
+fi
+exec /usr/bin/unicorn

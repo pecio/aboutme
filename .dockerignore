@@ -2,3 +2,4 @@
 .rvmrc
 .versions.conf
 .ruby-version
+.env
