@@ -14,6 +14,7 @@ USER rack
 
 ENV GEM_HOME "/rack-app/gems"
 ENV PATH "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/rack-app/gems/bin"
+ENV RACK_ENV "production"
 
 RUN /bin/rm -f .rvmrc .versions.conf .ruby-version
 RUN /bin/sed -i.orig '/^[[:space:]]*ruby/d' Gemfile
