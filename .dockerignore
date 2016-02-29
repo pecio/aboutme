@@ -1,1 +1,4 @@
 .git
+.rvmrc
+.versions.conf
+.ruby-version
