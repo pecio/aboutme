@@ -27,6 +27,9 @@ DEPENDENCIES
   i18n
   pony
   puma
-  rack (~> 1.5.2)
+  rack
   rack-user-locale
   sinatra
+
+BUNDLED WITH
+   1.11.2
