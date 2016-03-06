@@ -16,8 +16,7 @@ WORKDIR /rack-app
 
 USER rack
 
-ENV GEM_HOME=/rack-app/gems \
-    DISABLE_SSL=true
+ENV GEM_HOME=/rack-app/gems
 
 # Set .env-prod as .env
 # Remove Ruby version tag
@@ -29,7 +28,8 @@ RUN /bin/mv -f /rack-app/.env-prod /rack-app/.env \
       sed -i -e "/^[[:space:]]*$G[[:space:]]/d" \
              -e "/^[[:space:]]*$G\$/d" Gemfile.lock; \
     done \
-&&  /usr/bin/bundle install --without=development:test
+&&  DISABLE_SSL=true /usr/bin/bundle install \
+                     --without=development:test
 
 EXPOSE 3000
 
