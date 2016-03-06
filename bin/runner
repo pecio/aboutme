@@ -5,4 +5,4 @@ then
   . .env
   set +a
 fi
-exec /usr/bin/unicorn
+exec "${GEM_HOME}/bin/puma"
