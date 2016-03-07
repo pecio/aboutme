@@ -7,7 +7,7 @@ server {
 
   server_name www.raulpedroche.es;
 
-  root /static;
+  root /rack-app;
 
   try_files $uri/index.html $uri @about_app;
 

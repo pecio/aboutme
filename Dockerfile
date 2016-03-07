@@ -33,4 +33,6 @@ RUN /bin/mv -f /rack-app/.env-prod /rack-app/.env \
 
 EXPOSE 3000
 
+VOLUME /rack-app/public
+
 ENTRYPOINT ["/rack-app/bin/runner"]
