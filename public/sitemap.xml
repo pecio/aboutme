@@ -1,29 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <!-- canonical -->
-  <url>
-    <loc>http://www.raulpedroche.es/</loc>
-    <xhtml:link rel="alternate" hreflang="en"
-      href="http://www.raulpedroche.es/en/" />
-    <xhtml:link rel="alternate" hreflang="es"
-      href="http://www.raulpedroche.es/es/" />
-  </url>
-  <url>
-    <loc>http://www.raulpedroche.es/resume</loc>
-    <xhtml:link rel="alternate" hreflang="en"
-      href="http://www.raulpedroche.es/en/resume" />
-    <xhtml:link rel="alternate" hreflang="es"
-      href="http://www.raulpedroche.es/es/resume" />
-  </url>
-  <url>
-    <loc>http://www.raulpedroche.es/contact</loc>
-    <xhtml:link rel="alternate" hreflang="en"
-      href="http://www.raulpedroche.es/en/contact" />
-    <xhtml:link rel="alternate" hreflang="es"
-      href="http://www.raulpedroche.es/es/contact" />
-  </url>
-
   <!-- English -->
   <url>
     <loc>http://www.raulpedroche.es/en/</loc>
