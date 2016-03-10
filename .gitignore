@@ -2,3 +2,5 @@
 .DS_Store
 *.swp
 .env-prod
+*.crt
+*.key

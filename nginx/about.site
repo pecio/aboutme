@@ -4,6 +4,10 @@ upstream about_app {
 
 server {
   listen 80;
+  listen 443 ssl default_server;
+
+  ssl_certificate certificate.crt;
+  ssl_certificate_key privateKey.key;
 
   server_name www.raulpedroche.es;
 
