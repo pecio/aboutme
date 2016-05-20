@@ -3,6 +3,7 @@ require 'i18n'
 require 'i18n/backend/fallbacks'
 require 'pony'
 require 'rack-user-locale'
+require 'tilt/erb'
 
 configure do
   I18n::Backend::Simple.include(I18n::Backend::Fallbacks)
