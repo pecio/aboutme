@@ -26,11 +26,12 @@ body {
 
 .dl-horizontal dt {
   margin-right: 1em;
-  width: auto;
+  width: 20em;
+  text-align: left;
 }
 
 .dl-horizontal dd {
-  margin-left: 0;
+  margin-left: 21em;
 }
 
 .navbar-inverse {
