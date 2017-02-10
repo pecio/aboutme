@@ -2,9 +2,7 @@ FROM alpine
 MAINTAINER "Raúl Pedroche"
 
 RUN apk add --no-cache ruby ruby-bundler \
-        ruby-io-console ruby-i18n ruby-mail \
-        ruby-tilt ruby-json ruby-rack ruby-dev \
-        make gcc libc-dev \
+        ruby-json ruby-dev make gcc libc-dev \
 &&  /usr/sbin/addgroup ruby \
 &&  /usr/sbin/adduser -s /bin/sh -G ruby -D rack
 
