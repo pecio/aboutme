@@ -2,7 +2,7 @@
 if [ -r .env ]
 then
   set -a
-  . .env
+  . ./.env
   set +a
 fi
 exec "${GEM_HOME}/bin/puma"
