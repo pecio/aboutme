@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 ruby "2.5.2"
-gem "rack", "~>2.0.6"
+gem "rack", ">= 2.0.8"
 gem "puma", ">= 3.12.2"
 gem "sinatra"
 gem "i18n"
