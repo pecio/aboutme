@@ -22,10 +22,11 @@ ENV GEM_HOME=/rack-app/gems
 RUN /bin/mv -f /rack-app/.env-prod /rack-app/.env \
 &&  /bin/sed -i.orig '/^[[:space:]]*ruby/d' Gemfile \
 &&  for G in $(gem list --local --no-versions | grep -v LOCAL); do \
-      sed -i "/[\"']$G[\"']/d" Gemfile &&\
-      sed -i -e "/^[[:space:]]*$G[[:space:]]/d" \
-             -e "/^[[:space:]]*$G\$/d" Gemfile.lock; \
+      /bin/sed -i "/[\"']$G[\"']/d" Gemfile &&\
+      /bin/sed -i -e "/^[[:space:]]*$G[[:space:]]/d" \
+                  -e "/^[[:space:]]*$G\$/d" Gemfile.lock; \
     done \
+&&  /bin/sed -i "/BUNDLED WITH/,+1d" Gemfile.lock \
 &&  DISABLE_SSL=true /usr/bin/bundle install \
                      --without=development:test
 
