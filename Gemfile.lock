@@ -11,7 +11,7 @@ GEM
     nio4r (2.5.2)
     pony (1.12)
       mail (>= 2.0)
-    puma (4.3.1)
+    puma (4.3.3)
       nio4r (~> 2.0)
     rack (2.2.1)
     rack-protection (2.0.4)
