@@ -1,18 +1,18 @@
-FROM alpine
+FROM alpine:3.11.5
 MAINTAINER "Raúl Pedroche"
 
-RUN apk add --no-cache ruby ruby-bundler \
+RUN /sbin/apk add --no-cache ruby ruby-bundler \
         ruby-json ruby-dev make gcc libc-dev \
 &&  /usr/sbin/addgroup ruby \
-&&  /usr/sbin/adduser -s /bin/sh -G ruby -D rack
-
-ADD . /rack-app
-
-RUN /bin/chown -R rack:ruby /rack-app
-
-WORKDIR /rack-app
+&&  /usr/sbin/adduser -s /bin/sh -G ruby -D rack \
+&&  /bin/mkdir /rack-app \
+&&  /bin/chown rack:ruby /rack-app
 
 USER rack
+
+COPY . /rack-app
+
+WORKDIR /rack-app
 
 ENV GEM_HOME=/rack-app/gems
 
