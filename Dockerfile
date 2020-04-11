@@ -1,34 +1,41 @@
-FROM alpine:3.11.5
-MAINTAINER "Raúl Pedroche"
+FROM alpine:3.11.5 AS builder
 
 RUN /sbin/apk add --no-cache ruby ruby-bundler \
-        ruby-json ruby-dev make gcc libc-dev \
-&&  /usr/sbin/addgroup ruby \
-&&  /usr/sbin/adduser -s /bin/sh -G ruby -D rack \
-&&  /bin/mkdir /rack-app \
-&&  /bin/chown rack:ruby /rack-app
+              ruby-dev make gcc libc-dev \
+&&  /usr/sbin/addgroup -g 3000 ruby \
+&&  /usr/sbin/adduser -s /bin/sh -G ruby -D -u 3000 rack
+
+ENV GEM_HOME=/rack-app/gems
+
+COPY --chown=rack:ruby Gemfile /rack-app/
+
+WORKDIR /rack-app
 
 USER rack
 
+RUN /bin/sed -i.orig '/^[[:space:]]*ruby/d' Gemfile \
+&&  /usr/bin/env DISABLE_SSL=true /usr/bin/bundle install \
+                                  --without=development:test
+
+FROM alpine:3.11.5
+LABEL mantainer="pedroche@me.com"
+
+RUN /sbin/apk add --no-cache ruby ruby-bundler \
+&&  /usr/sbin/addgroup -g 3000 ruby \
+&&  /usr/sbin/adduser -s /bin/sh -G ruby -D -u 3000 rack \
+&&  /bin/mkdir /rack-app
+
 COPY . /rack-app
+COPY --from=builder /rack-app/gems /rack-app/gems
 
 WORKDIR /rack-app
 
 ENV GEM_HOME=/rack-app/gems
 
 # Set .env-prod as .env
-# Remove Ruby version tag
-# Remove installed gems from Gemfile and Gemfile.lock
-RUN /bin/mv -f /rack-app/.env-prod /rack-app/.env \
-&&  /bin/sed -i.orig '/^[[:space:]]*ruby/d' Gemfile \
-&&  for G in $(gem list --local --no-versions | grep -v LOCAL); do \
-      /bin/sed -i "/[\"']$G[\"']/d" Gemfile &&\
-      /bin/sed -i -e "/^[[:space:]]*$G[[:space:]]/d" \
-                  -e "/^[[:space:]]*$G\$/d" Gemfile.lock; \
-    done \
-&&  /bin/sed -i "/BUNDLED WITH/,+1d" Gemfile.lock \
-&&  DISABLE_SSL=true /usr/bin/bundle install \
-                     --without=development:test
+RUN if [[ -f /rack-app/.env-prod ]]; then /bin/mv -f /rack-app/.env-prod /rack-app/.env; fi
+
+USER rack
 
 EXPOSE 3000
 
