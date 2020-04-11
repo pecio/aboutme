@@ -17,23 +17,24 @@ RUN /bin/sed -i.orig '/^[[:space:]]*ruby/d' Gemfile \
 &&  /usr/bin/env DISABLE_SSL=true /usr/bin/bundle install \
                                   --without=development:test
 
+FROM alpine:3.11.5 AS packager
+COPY . /rack-app
+COPY --from=builder /rack-app/gems /rack-app/gems
+# Set .env-prod as .env
+RUN if [[ -f /rack-app/.env-prod ]]; then /bin/mv -f /rack-app/.env-prod /rack-app/.env; fi
+
 FROM alpine:3.11.5
 LABEL mantainer="pedroche@me.com"
 
 RUN /sbin/apk add --no-cache ruby ruby-bundler \
 &&  /usr/sbin/addgroup -g 3000 ruby \
-&&  /usr/sbin/adduser -s /bin/sh -G ruby -D -u 3000 rack \
-&&  /bin/mkdir /rack-app
+&&  /usr/sbin/adduser -s /bin/sh -G ruby -D -u 3000 rack
 
-COPY . /rack-app
-COPY --from=builder /rack-app/gems /rack-app/gems
+COPY --from=packager /rack-app /rack-app
 
 WORKDIR /rack-app
 
 ENV GEM_HOME=/rack-app/gems
-
-# Set .env-prod as .env
-RUN if [[ -f /rack-app/.env-prod ]]; then /bin/mv -f /rack-app/.env-prod /rack-app/.env; fi
 
 USER rack
 
