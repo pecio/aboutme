@@ -20,8 +20,6 @@ RUN /bin/sed -i.orig '/^[[:space:]]*ruby/d' Gemfile \
 FROM alpine:3.11.5 AS packager
 COPY . /rack-app
 COPY --from=builder /rack-app/gems /rack-app/gems
-# Set .env-prod as .env
-RUN if [[ -f /rack-app/.env-prod ]]; then /bin/mv -f /rack-app/.env-prod /rack-app/.env; fi
 
 FROM alpine:3.11.5
 LABEL mantainer="pedroche@me.com"
