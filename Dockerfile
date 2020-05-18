@@ -1,4 +1,4 @@
-FROM alpine:3.11.5 AS builder
+FROM alpine:3.11.6 AS builder
 
 RUN /sbin/apk add --no-cache ruby ruby-bundler \
               ruby-dev make gcc libc-dev \
@@ -17,11 +17,11 @@ RUN /bin/sed -i.orig '/^[[:space:]]*ruby/d' Gemfile \
 &&  /usr/bin/env DISABLE_SSL=true /usr/bin/bundle install \
                                   --without=development:test
 
-FROM alpine:3.11.5 AS packager
+FROM alpine:3.11.6 AS packager
 COPY . /rack-app
 COPY --from=builder /rack-app/gems /rack-app/gems
 
-FROM alpine:3.11.5
+FROM alpine:3.11.6
 LABEL mantainer="pedroche@me.com"
 
 RUN /sbin/apk add --no-cache ruby ruby-bundler \
