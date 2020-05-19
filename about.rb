@@ -14,6 +14,8 @@ configure do
   set :static_cache_control, [:public, :max_age => 2592000]
 end
 
+use Rack::Static, :urls => ['/attachments', '/css', '/favicon.ico', '/images', '/js', '/robots.txt', '/sitemap.xml'], :root => 'public'
+
 use Rack::UserLocale, :accepted_locales => I18n.available_locales
 
 before '/' do
