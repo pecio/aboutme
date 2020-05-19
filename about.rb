@@ -2,7 +2,6 @@ require 'sinatra'
 require 'i18n'
 require 'i18n/backend/fallbacks'
 require 'pony'
-require 'user_locale'
 require 'tilt/erb'
 
 configure do
@@ -15,8 +14,6 @@ configure do
 end
 
 use Rack::Static, :urls => ['/attachments', '/css', '/favicon.ico', '/images', '/js', '/robots.txt', '/sitemap.xml'], :root => 'public'
-
-use Rack::UserLocale, :accepted_locales => I18n.available_locales
 
 before '/' do
   redirect "/#{I18n.locale}/"
