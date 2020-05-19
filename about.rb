@@ -2,7 +2,7 @@ require 'sinatra'
 require 'i18n'
 require 'i18n/backend/fallbacks'
 require 'pony'
-require 'rack-user-locale'
+require 'user_locale'
 require 'tilt/erb'
 
 configure do
