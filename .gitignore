@@ -4,3 +4,4 @@
 .env-prod
 *.crt
 *.key
+Gemfile.lock
