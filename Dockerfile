@@ -21,13 +21,19 @@ RUN /bin/sed -i.orig '/^[[:space:]]*ruby/d' Gemfile \
 &&  /usr/bin/env DISABLE_SSL=true /usr/bin/bundle install \
                                   --without=development:test
 
+#---
+FROM base AS packager
+
+COPY --chown=rack:ruby . /rack-app
+COPY --from=builder /rack-app/gems /rack-app/gems
+
+#---
 FROM base
 LABEL mantainer="pedroche@me.com"
 
 RUN /sbin/apk add --no-cache ruby ruby-bundler
 
-COPY --chown=rack:ruby . /rack-app
-COPY --from=builder /rack-app/gems /rack-app/gems
+COPY --from=packager /rack-app /rack-app
 
 WORKDIR /rack-app
 
