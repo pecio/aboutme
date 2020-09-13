@@ -64,7 +64,7 @@ get '/contact' do
 end
 
 get '/contactform.js' do
-  erb 'contactform.js'.to_sym, layout: false
+  erb 'contactform.js'.to_sym, layout: false, content_type: 'application/javascript'
 end
 
 post '/contact' do
