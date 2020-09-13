@@ -18,8 +18,7 @@ WORKDIR /rack-app
 USER rack
 
 RUN /bin/sed -i.orig '/^[[:space:]]*ruby/d' Gemfile \
-&&  /usr/bin/env DISABLE_SSL=true /usr/bin/bundle install \
-                                  --without=development:test
+&&  /usr/bin/bundle install --without=development:test
 
 #---
 FROM base AS packager
