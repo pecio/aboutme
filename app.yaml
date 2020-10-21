@@ -1,0 +1,29 @@
+---
+runtime: ruby27
+
+entrypoint: bundle exec puma
+
+automatic_scaling:
+  max_instances: 3
+
+handlers:
+  - url: /attachments
+    static_dir: public/attachments
+    secure: always
+  - url: /css
+    static_dir: public/css
+    secure: always
+  - url: /images
+    static_dir: public/images
+    secure: always
+  - url: /js
+    static_dir: public/js
+    secure: always
+  - url: /(favicon.ico|robots.txt|sitemap.xml)$
+    static_files: public/\1
+    upload: public/(favicon.ico|robots.txt|sitemap.xml)$
+    secure: always
+  - url: /.*
+    script: auto
+    secure: always
+...
