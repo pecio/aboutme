@@ -4,6 +4,7 @@ require 'i18n'
 require 'i18n/backend/fallbacks'
 require 'pony'
 require 'tilt/erb'
+require './secrets'
 
 configure do
   I18n::Backend::Simple.include(I18n::Backend::Fallbacks)
@@ -69,17 +70,17 @@ end
 
 post '/contact' do
   options = {
-    to: ENV['CONTACT_ADDRESS'],
+    to: get_secret('contact_address'),
     from: "#{params[:name]} <#{params[:email]}>",
     subject: 'Contacto de ' + params[:name],
     body: params[:message],
     charset: 'UTF-8',
     via: :smtp,
     via_options: {
-      port:           ENV['MAILGUN_SMTP_PORT'],
-      address:        ENV['MAILGUN_SMTP_SERVER'],
-      user_name:      ENV['MAILGUN_SMTP_LOGIN'],
-      password:       ENV['MAILGUN_SMTP_PASSWORD'],
+      port:           get_secret('mailgun_smtp_port'),
+      address:        get_secret('mailgun_smtp_server'),
+      user_name:      get_secret('mailgun_smtp_login'),
+      password:       get_secret('mailgun_smtp_password'),
       authentication: :plain
     }
   }
