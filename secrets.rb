@@ -5,7 +5,8 @@ def get_secret(name)
     path = "projects/#{project}/secrets/#{name}/versions/latest"
     begin
         client = Google::Cloud::SecretManager.secret_manager_service
-        response = client.access_secret_version name: path    
+        response = client.access_secret_version name: path  
+        response.payload.data  
     rescue => exception
         puts exception
         ENV[name.upcase]
