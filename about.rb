@@ -23,6 +23,7 @@ before '/' do
 end
 
 before '/:document' do
+  next if request.post?
   redirect "/#{I18n.locale}/#{params[:document]}"
 end
 
@@ -69,7 +70,6 @@ get '/contactform.js' do
 end
 
 post '/contact' do
-  puts 'entering POST /contact'
   options = {
     to: get_secret('contact_address'),
     from: "#{params[:name]} <#{params[:email]}>",
@@ -88,6 +88,5 @@ post '/contact' do
 
   Pony.mail(options)
 
-  puts "Sent message from #{params[:email]}."
   erb :contact
 end
