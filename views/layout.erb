@@ -128,6 +128,14 @@ function loadCSS( href, before, media ){
       <%= t('alert.cookies') %>
     </div>
     <!-- End cookies warning -->
+    <% flash.keys.each do |alert| %>
+      <div class="alert <%= alert.to_s.gsub('_', '-') %> alert-dismissible" role="alert">
+        <%= flash[alert] %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <% end %>
     <div class="container">
       <div class="starter-template">
         <%= yield %>

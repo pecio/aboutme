@@ -5,6 +5,9 @@ require 'i18n/backend/fallbacks'
 require 'pony'
 require 'tilt/erb'
 require './secrets'
+require 'sinatra/flash'
+
+enable :sessions
 
 configure do
   I18n::Backend::Simple.include(I18n::Backend::Fallbacks)
@@ -88,5 +91,7 @@ post '/contact' do
 
   Pony.mail(options)
 
-  erb :contact
+  flash[:alert_success] = I18n.t("contact.thanks")
+
+  redirect "/#{I18n.locale}/", 303
 end

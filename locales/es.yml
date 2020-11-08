@@ -14,6 +14,7 @@ es:
       name: "Por favor, introduzca su nombre"
       email: "Por favor, introduzca una dirección de correo válida"
       message: "Por favor, diga algo"
+    thanks: "Gracias por contactarme"
   meta:
     description:
       index: "Página personal de Raúl Pedroche, administrador unix, con Curriculum Vitae y enlaces a las redes sociales"
