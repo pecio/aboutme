@@ -73,25 +73,30 @@ get '/contactform.js' do
 end
 
 post '/contact' do
-  options = {
-    to: get_secret('contact_address'),
-    from: "#{params[:name]} <#{params[:email]}>",
-    subject: 'Contacto de ' + params[:name],
-    body: params[:message],
-    charset: 'UTF-8',
-    via: :smtp,
-    via_options: {
-      port:           get_secret('mailgun_smtp_port'),
-      address:        get_secret('mailgun_smtp_server'),
-      user_name:      get_secret('mailgun_smtp_login'),
-      password:       get_secret('mailgun_smtp_password'),
-      authentication: :plain
+  if params[:name].empty? or params[:email].empty? or params[:message].empty?
+    flash[:alert_danger] = I18n.t("contact.empty")
+    redirect "/#{I18n.locale}/contact"
+  else
+    options = {
+      to: get_secret('contact_address'),
+      from: "#{params[:name]} <#{params[:email]}>",
+      subject: 'Contacto de ' + params[:name],
+      body: params[:message],
+      charset: 'UTF-8',
+      via: :smtp,
+      via_options: {
+        port:           get_secret('mailgun_smtp_port'),
+        address:        get_secret('mailgun_smtp_server'),
+        user_name:      get_secret('mailgun_smtp_login'),
+        password:       get_secret('mailgun_smtp_password'),
+        authentication: :plain
+      }
     }
-  }
 
-  Pony.mail(options)
+    Pony.mail(options)
 
-  flash[:alert_success] = I18n.t("contact.thanks")
+    flash[:alert_success] = I18n.t("contact.thanks")
 
-  redirect "/#{I18n.locale}/", 303
+    redirect "/#{I18n.locale}/", 303
+  end
 end

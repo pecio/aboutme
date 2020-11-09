@@ -15,6 +15,7 @@ en:
       email: "Please enter a valid e-mail address"
       message: "Please say something"
     thanks: "Thank you for getting in touch"
+    empty: "There is missing information"
   meta:
     description:
       index: "Personal page of Raúl Pedroche, unix administrator, with resume and social media links"
