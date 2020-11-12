@@ -16,6 +16,7 @@ es:
       message: "Por favor, diga algo"
     thanks: "Gracias por contactarme"
     empty: "Falta información"
+    unconfigured: "Lo siento, el formulario de contacto no está configurado"
   meta:
     description:
       index: "Página personal de Raúl Pedroche, administrador unix, con Curriculum Vitae y enlaces a las redes sociales"

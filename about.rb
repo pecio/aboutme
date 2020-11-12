@@ -76,7 +76,7 @@ post '/contact' do
   if params[:name].empty? or params[:email].empty? or params[:message].empty?
     flash[:alert_danger] = I18n.t("contact.empty")
     redirect "/#{I18n.locale}/contact"
-  else
+  elsif get_secret('contact_address')
     options = {
       to: get_secret('contact_address'),
       from: "#{params[:name]} <#{params[:email]}>",
@@ -96,6 +96,10 @@ post '/contact' do
     Pony.mail(options)
 
     flash[:alert_success] = I18n.t("contact.thanks")
+
+    redirect "/#{I18n.locale}/", 303
+  else
+    flash[:alert_warning] = I18n.t("contact.unconfigured")
 
     redirect "/#{I18n.locale}/", 303
   end

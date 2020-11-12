@@ -16,6 +16,7 @@ en:
       message: "Please say something"
     thanks: "Thank you for getting in touch"
     empty: "There is missing information"
+    unconfigured: "Sorry, contact form is not configured"
   meta:
     description:
       index: "Personal page of Raúl Pedroche, unix administrator, with resume and social media links"
