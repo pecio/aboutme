@@ -1,4 +1,4 @@
-require 'google/cloud/secret_manager'
+require 'google/cloud/secret_manager' if ENV['GOOGLE_CLOUD_PROJECT']
 
 def get_secret(name)
     def fallback(name)
@@ -16,7 +16,7 @@ def get_secret(name)
             client = Google::Cloud::SecretManager.secret_manager_service
             response = client.access_secret_version name: path  
             response.payload.data  
-        rescue => exception
+        rescue
             fallback(name)
         end
     else

@@ -9,7 +9,7 @@ ENV GEM_HOME=/rack-app/gems
 FROM base AS builder
 
 RUN /sbin/apk add --no-cache ruby ruby-bundler \
-              ruby-dev make g++ libc-dev linux-headers
+              ruby-dev make gcc libc-dev
 
 COPY --chown=rack:ruby Gemfile /rack-app/
 
@@ -17,7 +17,10 @@ WORKDIR /rack-app
 
 USER rack
 
-RUN /bin/sed -i.orig '/^[[:space:]]*ruby/d' Gemfile \
+RUN /bin/sed -i.orig \
+             -e '/^[[:space:]]*ruby/d' \
+             -e '/google-cloud/d' \
+             Gemfile \
 &&  /usr/bin/bundle install --without=development:test
 
 #---
