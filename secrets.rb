@@ -8,7 +8,10 @@ def get_secret(name)
         response = client.access_secret_version name: path  
         response.payload.data  
     rescue => exception
-        puts exception
-        ENV[name.upcase]
+        if File.exist?("/run/secrets/#{name}")
+            File.read("/run/secrets/#{name}")
+        else
+            ENV[name.upcase]
+        end
     end
 end
