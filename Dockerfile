@@ -9,7 +9,7 @@ ENV GEM_HOME=/rack-app/gems
 FROM base AS builder
 
 RUN /sbin/apk add --no-cache ruby ruby-bundler \
-              ruby-dev make gcc libc-dev
+              ruby-dev make g++ libc-dev linux-headers
 
 COPY --chown=rack:ruby Gemfile /rack-app/
 
