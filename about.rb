@@ -85,10 +85,10 @@ post '/contact' do
       charset: 'UTF-8',
       via: :smtp,
       via_options: {
-        port:           get_secret('mailgun_smtp_port'),
-        address:        get_secret('mailgun_smtp_server'),
-        user_name:      get_secret('mailgun_smtp_login'),
-        password:       get_secret('mailgun_smtp_password'),
+        port:           get_secret('smtp_port'),
+        address:        get_secret('smtp_server'),
+        user_name:      get_secret('smtp_login'),
+        password:       get_secret('smtp_password'),
         authentication: :plain
       }
     }
