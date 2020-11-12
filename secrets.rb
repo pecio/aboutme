@@ -3,7 +3,7 @@ require 'google/cloud/secret_manager'
 def get_secret(name)
     def fallback(name)
         if File.exist?("/run/secrets/#{name}")
-            File.read("/run/secrets/#{name}")
+            File.read("/run/secrets/#{name}").chomp
         else
             ENV[name.upcase]
         end
