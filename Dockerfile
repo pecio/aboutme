@@ -1,4 +1,4 @@
-FROM alpine:3.12.0 AS base
+FROM alpine:3.12.1 AS base
 
 RUN /usr/sbin/addgroup -g 3000 ruby \
 &&  /usr/sbin/adduser -s /bin/sh -G ruby -D -u 3000 rack
