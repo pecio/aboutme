@@ -47,4 +47,4 @@ VOLUME /rack-app/public
 
 ENV RACK_ENV=production PORT=3000
 
-ENTRYPOINT ["/rack-app/bin/runner"]
+ENTRYPOINT ["/rack-app/gems/bin/puma"]
