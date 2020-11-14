@@ -9,13 +9,13 @@ class SecretStore
         if ENV['GOOGLE_CLOUD_PROJECT']
             begin
                 @client = Google::Cloud::SecretManager.secret_manager_service
-            rescue
+            rescue => e
+                puts "Could not create SecretManager: #{e}"
                 @client = nil
             end
         else
             @client = nil
         end
-
     end
 
     def get(name)
@@ -28,25 +28,22 @@ class SecretStore
 
     private
     def _get(name)
-        def fallback(name)
-            if File.exist?("/run/secrets/#{name}")
-                File.read("/run/secrets/#{name}").chomp
-            else
-                ENV[name.upcase]
-            end
-        end
-    
-        project = ENV['GOOGLE_CLOUD_PROJECT']
-        path = "projects/#{project}/secrets/#{name}/versions/latest"
-        if @client
+        if File.exist?("/run/secrets/#{name}")
+            File.read("/run/secrets/#{name}").chomp
+        elsif ENV[name.upcase]
+            ENV[name.upcase]
+        elsif @client
+            project = ENV['GOOGLE_CLOUD_PROJECT']
+            path = "projects/#{project}/secrets/#{name}/versions/latest"
+   
             begin
                 response = @client.access_secret_version name: path  
                 response.payload.data  
-            rescue
-                fallback(name)
+            rescue => e
+                puts "Could not get #{path}: #{e}"
             end
         else
-            fallback(name)
+            nil
         end
     end
 end
