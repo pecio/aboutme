@@ -16,16 +16,6 @@ class SecretStore
             @client = nil
         end
 
-        for name in [
-            'google_analytics_id',
-            'contact_address',
-            'smtp_login',
-            'smtp_password',
-            'smtp_server',
-            'smtp_port'
-        ]
-            @secrets[name] = _get(name)
-        end
     end
 
     def get(name)
