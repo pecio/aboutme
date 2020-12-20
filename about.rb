@@ -85,7 +85,9 @@ def validate_reCAPTCHA(response)
     response: response
   })
 
-  JSON.parse(result)["success"]
+  reply = JSON.parse(result.body)
+
+  reply["success"] and (reply["score"] > 0.5)
 end
 
 post '/contact' do
