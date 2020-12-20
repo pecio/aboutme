@@ -6,8 +6,11 @@ require 'pony'
 require 'tilt/erb'
 require './secrets'
 require 'sinatra/flash'
+require 'rack/protection'
 
 enable :sessions
+
+use Rack::Protection::AuthenticityToken
 
 configure do
   I18n::Backend::Simple.include(I18n::Backend::Fallbacks)
