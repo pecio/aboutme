@@ -7,6 +7,9 @@ require 'tilt/erb'
 require './secrets'
 require 'sinatra/flash'
 require 'rack/protection'
+require 'net/http'
+require 'uri'
+require 'json'
 
 enable :sessions
 
@@ -75,30 +78,42 @@ get '/contactform.js' do
   erb 'contactform.js'.to_sym, layout: false, content_type: 'application/javascript'
 end
 
+def validate_reCAPTCHA(response)
+  uri = URI.parse('https://www.google.com/recaptcha/api/siteverify')
+  result = Net::HTTP.post_form(uri, {
+    secret:   get_secret('reCAPTCHA'),
+    response: response
+  })
+
+  JSON.parse(result)["success"]
+end
+
 post '/contact' do
   if params[:name].empty? or params[:email].empty? or params[:message].empty?
     flash[:alert_danger] = I18n.t("contact.empty")
     redirect "/#{I18n.locale}/contact"
   elsif get_secret('contact_address')
-    options = {
-      to: get_secret('contact_address'),
-      from: "#{params[:name]} <#{params[:email]}>",
-      subject: 'Contacto de ' + params[:name],
-      body: params[:message],
-      charset: 'UTF-8',
-      via: :smtp,
-      via_options: {
-        port:           get_secret('smtp_port'),
-        address:        get_secret('smtp_server'),
-        user_name:      get_secret('smtp_login'),
-        password:       get_secret('smtp_password'),
-        authentication: :plain
+    if validate_reCAPTCHA(params["g-recaptcha-response"])
+      options = {
+        to: get_secret('contact_address'),
+        from: "#{params[:name]} <#{params[:email]}>",
+        subject: 'Contacto de ' + params[:name],
+        body: params[:message],
+        charset: 'UTF-8',
+        via: :smtp,
+        via_options: {
+          port:           get_secret('smtp_port'),
+          address:        get_secret('smtp_server'),
+          user_name:      get_secret('smtp_login'),
+          password:       get_secret('smtp_password'),
+          authentication: :plain
+        }
       }
-    }
-
-    Pony.mail(options)
-
-    flash[:alert_success] = I18n.t("contact.thanks")
+  
+      Pony.mail(options)
+  
+      flash[:alert_success] = I18n.t("contact.thanks")
+    end
 
     redirect "/#{I18n.locale}/", 303
   else

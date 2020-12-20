@@ -169,11 +169,18 @@ function loadCSS( href, before, media ){
     </script>
     <script src="//cdn.jsdelivr.net/gh/twbs/bootstrap@3.4.1/dist/js/bootstrap.min.js">
     </script>
+    <script src="//www.google.com/recaptcha/api.js">
+    </script>
     <script src="/js/raulete.js"></script>
     <% if request.path_info == '/contact' then %>
       <script src="//cdn.jsdelivr.net/gh/jquery-validation/jquery-validation@1.19.2/dist/jquery.validate.min.js">
       </script>
       <script src="<%= base %>contactform.js"></script>
+      <script>
+        function onSubmit(token) {
+          document.getElementById("contact-form").submit();
+        }
+      </script>
     <% end %>
   </body>
 </html>

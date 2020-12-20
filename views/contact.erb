@@ -31,10 +31,14 @@
 
             <div class="form-group">
               <div class="col-md-12 text-right">
-                <button type="submit" class="btn btn-primary btn-lg"><%= t('contact.submit') %></button>
+                <button type="submit"
+                        class="btn btn-primary btn-lg g-recaptcha"
+                        data-sitekey="<%= get_secret('rcSiteKey') %>"
+                        data-callback="onSubmit"
+                        data-action="submit"><%= t('contact.submit') %></button>
               </div>
             </div>
-    
+
           </fieldset>
         </form>
       </div>
