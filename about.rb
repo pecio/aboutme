@@ -13,7 +13,7 @@ require 'json'
 
 enable :sessions
 
-use Rack::Protection::AuthenticityToken
+use Rack::Protection
 
 configure do
   I18n::Backend::Simple.include(I18n::Backend::Fallbacks)
