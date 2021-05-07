@@ -35,7 +35,7 @@ LABEL mantainer="pedroche@me.com"
 
 COPY --from=packager /rack-app /rack-app
 
-RUN /sbin/apk add --no-cache ruby ruby-bundler; /bin/mkdir /rack-app/run
+RUN /sbin/apk add --no-cache ruby ruby-bundler; /bin/mkdir -m 777 /rack-app/run
 
 WORKDIR /rack-app
 

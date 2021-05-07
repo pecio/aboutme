@@ -3,3 +3,4 @@
 .versions.conf
 .ruby-version
 .env
+/run
