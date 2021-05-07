@@ -33,9 +33,9 @@ COPY --from=builder /rack-app/gems /rack-app/gems
 FROM base
 LABEL mantainer="pedroche@me.com"
 
-RUN /sbin/apk add --no-cache ruby ruby-bundler
-
 COPY --from=packager /rack-app /rack-app
+
+RUN /sbin/apk add --no-cache ruby ruby-bundler; /bin/mkdir /rack-app/run
 
 WORKDIR /rack-app
 
