@@ -8,4 +8,6 @@ rackup      DefaultRackup
 port        ENV['PORT']     || 3000
 environment ENV['RACK_ENV'] || 'development'
 
-bind "unix://./run/puma.sock?umask=0000"
+if not ENV['GOOGLE_CLOUD_PROJECT']
+  bind "unix://./run/puma.sock?umask=0000"
+end
