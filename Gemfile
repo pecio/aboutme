@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "~> 2.7.0"
+ruby "~> 3.0.5"
 gem "rack", ">= 2.0.8"
 gem "rack-contrib"
 gem "puma", ">= 3.12.2"
