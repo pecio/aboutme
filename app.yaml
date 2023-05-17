@@ -1,5 +1,5 @@
 ---
-runtime: ruby30
+runtime: ruby32
 
 entrypoint: bundle exec puma
 
